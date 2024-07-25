@@ -23,8 +23,7 @@ class app {
 
             if (cmd.equals("종료")) {
                 break;
-            }
-            else if (cmd.equals("등록")) {
+            } else if (cmd.equals("등록")) {
                 System.out.print("명언 : ");
                 String text = scanner.nextLine();
                 System.out.print("작가 : ");
@@ -33,30 +32,34 @@ class app {
                 textlist.add(num + " / " + text + " / " + author);
                 num++;
 
-            }
-            else if (cmd.equals("목록")) {
+            } else if (cmd.equals("목록")) {
                 System.out.println(textlist);
                 if (textlist.isEmpty()) {
                     System.out.println("등록된 명언이 없습니다.");
                 }
-            }
-            else if (cmd.equals("삭제")) {
+            } else if (cmd.equals("삭제")) {
                 System.out.print("삭제할 번호 : ");
                 int erasenum = scanner.nextInt();
 
-                for (int i = 1; i <= num; i++) {
+                for (int i = 0; i < textlist.size(); i++) {
                     if (i == erasenum) {
                         textlist.remove(i - 1);
                         System.out.println(erasenum + "번 명언이 삭제되었습니다");
                     }
+//                    if (textlist.get(erasenum).isEmpty()) {
+//                        System.out.println(erasenum + "번 명언은 존재하지 않습니다.");
+//                    }
                 }
-//                for (int i = 1; i <= num; i++){
-//                    if (i == erasenum){
+//                if (textlist.get(erasenum).isEmpty()) {
+//                    System.out.println(erasenum + "번 명언은 존재하지 않습니다.");
+//                }
+
+//                for (int i = 0; i < textlist.size(); i++) {
+//                    if (textlist.get(erasenum).isEmpty()) {
 //                        System.out.println(erasenum + "번 명언은 존재하지 않습니다.");
 //                    }
 //                }
-            }
-            else if (cmd.equals("수정")) {
+            } else if (cmd.equals("수정")) {
                 System.out.print("수정할 번호 : ");
                 int changenum = scanner.nextInt();
                 scanner.nextLine();
@@ -66,14 +69,13 @@ class app {
                 System.out.print("작가 : ");
                 String author = scanner.nextLine();
 
-                for (int i = 1; i <= num; i++) {
+                for (int i = 0; i < num; i++) {
                     if (i == changenum) {
                         textlist.set(i - 1, changenum + " / " + text + " / " + author);
                     }
                 }
 
-            }
-            else {
+            } else {
                 System.out.println("명령어를 다시 입력하세요");
             }
         }
